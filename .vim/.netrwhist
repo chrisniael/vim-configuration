@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/usr/local/nginx/html/xiaojie.shenyu.me/articles'
+let g:netrw_dirhist_2='/Users/ShenYu/Desktop/test'
+let g:netrw_dirhist_3='/private/etc'
