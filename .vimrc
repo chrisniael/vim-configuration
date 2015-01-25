@@ -8,12 +8,13 @@ autocmd FileType go compiler go
 "+-------------------------------------+
 
 " quickfix快捷键
-nmap cw :cw<CR>
-nmap cc :cc<CR>
-nmap cl :cl<CR>
-nmap cm :ccl<CR>
-nmap cn :cn<CR>
-nmap cp :cp<CR>
+" cw 快捷键已经被默认存在，冲突
+"nmap cw :cw<CR>
+"nmap cc :cc<CR>
+"nmap cl :cl<CR>
+"nmap cm :ccl<CR>
+"nmap cn :cn<CR>
+"nmap cp :cp<CR>
 
 
 " WinManager插件：(感觉比较累赘）
@@ -201,6 +202,9 @@ set ruler
 "次类推，进行查找时，使用此设置会快速找到答案，当你找要匹配的单词
 "时，别忘记回车
 set incsearch
+
+"查询结果高亮
+set hlsearch
 
 "修改一个文件后，自动进行备份，备份的文件名为原文件名加"~"后缀
 "if has("vms")     注意双引号要用半角的引号
