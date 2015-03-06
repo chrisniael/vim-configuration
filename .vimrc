@@ -1,3 +1,6 @@
+" 设置Backspace模式
+set backspace=indent,eol,start
+
 "autocmd FileType go autocmd BufWritePre <buffer> Fmt
 autocmd FileType go compiler go
 
@@ -96,9 +99,9 @@ exec "!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q ."
 exec "TlistUpdate"
 endfunc
 
-map <C-h> :call BuildIndex()<CR>
-imap <C-h> <ESC>:call BuildIndex()<CR>
-vmap <C-h> <ESC>:call BuildIndex()<CR>
+"map <C-h> :call BuildIndex()<CR>
+"imap <C-h> <ESC>:call BuildIndex()<CR>
+"vmap <C-h> <ESC>:call BuildIndex()<CR>
 
 
 "SuperTab配置:
