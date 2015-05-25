@@ -4,6 +4,7 @@ set backspace=indent,eol,start
 "autocmd FileType go autocmd BufWritePre <buffer> Fmt
 autocmd FileType go compiler go
 
+
 "+-------------------------------------+
 "|vim配置文件                          |
 "|主机: ShenYu@Mac OS X                |
@@ -11,7 +12,6 @@ autocmd FileType go compiler go
 "+-------------------------------------+
 
 " quickfix快捷键
-" cw 快捷键已经被默认存在，冲突
 "nmap cw :cw<CR>
 "nmap cc :cc<CR>
 "nmap cl :cl<CR>
@@ -167,12 +167,21 @@ let g:rubycomplete_buffer_loading = 1
 "记录历史的行数
 set history=1000
 
+"语法高亮度显示
+syntax enable
+"syntax on
+
 "背景使用黑色（使用背景黑色后，很多主题颜色会随之改变，不建议设置）
 set background=dark
 
-"语法高亮度显示
-syntax enable
-syntax on
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+let g:solarized_menu=0
+"let g:solarized_degrade=1
+
+call togglebg#map("<F5>")
+
+colorscheme solarized
 
 "下面两行在进行编写代码时，在格式对起上很有用；
 "第一行，vim使用自动对起，也就是把当前行的对起格式应用到下一行；
@@ -220,11 +229,11 @@ set hlsearch
 "{{{
 inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
-inoremap { {<CR>}<Esc>O
+"inoremap { {<CR>}<Esc>O
 autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
 inoremap ) <c-r>=ClosePair(')')<CR>
 inoremap ] <c-r>=ClosePair(']')<CR>
-inoremap } <c-r>=CloseBracket()<CR>
+"inoremap } <c-r>=CloseBracket()<CR>
 "inoremap " <c-r>=QuoteDelim('"')<CR>
 "inoremap ' <c-r>=QuoteDelim("'")<CR>
 
