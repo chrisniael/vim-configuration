@@ -174,7 +174,7 @@ syntax enable
 "背景使用黑色（使用背景黑色后，很多主题颜色会随之改变，不建议设置）
 set background=dark
 
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 let g:solarized_menu=0
 "let g:solarized_degrade=1
