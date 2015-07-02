@@ -7,7 +7,8 @@ let g:DoxygenToolkit_blockFooter="----------------------------------------------
 let g:DoxygenToolkit_authorName="沈煜, shenyu@shenyu.me" 
 
 " 折叠方式
-"set fdm=indent
+set foldmethod=syntax
+set foldlevel=100	" 启动vim时不自动折叠代码
 
 " 设置Backspace模式
 set backspace=indent,eol,start
