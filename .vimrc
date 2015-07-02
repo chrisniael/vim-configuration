@@ -1,3 +1,14 @@
+" DoxygenToolKit 配置
+let g:DoxygenToolkit_briefTag_pre="@Brief  " 
+let g:DoxygenToolkit_paramTag_pre="@Param " 
+let g:DoxygenToolkit_returnTag="@Return   " 
+let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------" 
+let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------" 
+let g:DoxygenToolkit_authorName="沈煜, shenyu@shenyu.me" 
+
+" 折叠方式
+"set fdm=indent
+
 " 设置Backspace模式
 set backspace=indent,eol,start
 
@@ -10,15 +21,6 @@ autocmd FileType go compiler go
 "|主机: ShenYu@Mac OS X                |
 "|时间：2013.10.03                     |
 "+-------------------------------------+
-
-" quickfix快捷键
-"nmap cw :cw<CR>
-"nmap cc :cc<CR>
-"nmap cl :cl<CR>
-"nmap cm :ccl<CR>
-"nmap cn :cn<CR>
-"nmap cp :cp<CR>
-
 
 " WinManager插件：(感觉比较累赘）
 "nmap <C-y> :FirstExplorerWindow<CR>
@@ -50,45 +52,6 @@ let Tlist_Use_SingleClick=0
 let Tlist_WinHeight=10
 let Tlist_WinWidth=25  " taglist窗口宽度
 nmap tt :TlistToggle<CR>
-
-" 设置TagList颜色
-highlight MyTagListTagName guifg=5 ctermfg=5 "蓝色
-highlight MyTagListTagScope guifg=1 ctermfg=1 "红色
-highlight MyTagListTitle guifg=11 ctermfg=11 "黄色
-highlight MyTagListTagComment guifg=2 ctermfg=2 "绿色 
-highlight MyTagListFileName guifg=12 ctermfg=12 "蓝色
-
-
-" ctags 索引文件 (根据已经生成的索引文件添加)
-set tags+=~/.vim/tags/cpp " 增加对C++ STL关键字智能补全的支持
-set tags+=~/.vim/tags/boost "增加对Boost库关键字补全的支持，但是太大，不建议配置
-
-set autochdir " 自动切换工作路径
-
-
-" OmniCppComplete配置:
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif " 自动关闭补全窗口
-set completeopt=menuone,menu
-
-let OmniCpp_NamespaceSearch=2
-let OmniCpp_GlobalScopeSearch=1
-let OmniCpp_DisplayMode=1         " 总是显示所有成员
-let OmniCpp_ShowScopeInAbbr=0
-let OmniCpp_ShowAccess=1
-let OmniCpp_ShowPrototypeInAbbr=1 " 显示函数参数列表
-let OmniCpp_MayCompleteDot=1      " 输入 .  后自动补全
-let OmniCpp_MayCompleteArrow=1    " 输入 -> 后自动补全
-let OmniCpp_MayCompleteScope=1    " 输入 :: 后自动补全
-let OmniCpp_DefaultNamespaces=["std", "_GLIBCXX_STD", "__gnu_cxx"]
-let OmniCpp_SelectFirstItem=0     " 选中第一个选项但是，不替换
-let OmniCpp_LocalSearchDecl=1
-
-" 设置代码提示窗口得颜色:
-" 深蓝色 : 23
-highlight Pmenu ctermbg=5 guibg=LightGray
-highlight PmenuSel ctermbg=23 guibg=DarkBlue guifg=White
-highlight PmenuSbar ctermbg=5 guibg=DarkGray
-highlight PmenuThumb ctermbg=23 guibg=Black
 
 
 
@@ -133,16 +96,37 @@ set encoding=utf-8
 "显示行号
 set number
 
+
+" ctags 索引文件 (根据已经生成的索引文件添加)
+set tags+=~/.vim/tags/cpp " 增加对C++ STL关键字智能补全的支持
+set tags+=~/.vim/tags/boost "增加对Boost库关键字补全的支持，但是太大，不建议配置
+
+set autochdir " 自动切换工作路径
+
+
+" OmniCppComplete配置:
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif " 自动关闭补全窗口
+set completeopt=menuone,menu
+"set completeopt=longest,menu
+
+let OmniCpp_NamespaceSearch=2
+let OmniCpp_GlobalScopeSearch=1
+let OmniCpp_DisplayMode=1         " 总是显示所有成员
+let OmniCpp_ShowScopeInAbbr=0
+let OmniCpp_ShowAccess=1
+let OmniCpp_ShowPrototypeInAbbr=1 " 显示函数参数列表
+let OmniCpp_MayCompleteDot=1      " 输入 .  后自动补全
+let OmniCpp_MayCompleteArrow=1    " 输入 -> 后自动补全
+let OmniCpp_MayCompleteScope=1    " 输入 :: 后自动补全
+let OmniCpp_DefaultNamespaces=["std", "_GLIBCXX_STD", "__gnu_cxx"]
+let OmniCpp_SelectFirstItem=0     " 选中第一个选项但是，不替换
+let OmniCpp_LocalSearchDecl=1
+
 "检测文件的类型
 filetype on
 
-"智能补全
-filetype plugin indent on
-"set completeopt=longest,menu
-
-"允许进行文件类型检查 插件 omnicppcomplete
-set nocp
 filetype plugin on
+filetype indent on 
 
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -179,7 +163,7 @@ let g:solarized_termtrans=1
 let g:solarized_menu=0
 "let g:solarized_degrade=1
 
-call togglebg#map("<F5>")
+"call togglebg#map("<F5>")
 
 colorscheme solarized
 
@@ -281,7 +265,7 @@ endfunc
 
 func! CompileGpp()
 exec "w"
-let compilecmd="!clang++ "
+let compilecmd="!clang++ -std=c++11"
 let compileflag="-o %<.out 2> .%<.err"
 exec compilecmd." % ".compileflag
 exec "cfile .%<.err"
