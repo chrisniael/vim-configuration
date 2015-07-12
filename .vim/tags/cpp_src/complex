@@ -49,7 +49,7 @@
 #include <cmath>
 #include <sstream>
 
-_GLIBCXX_BEGIN_NAMESPACE(std)
+namespace std {
 
   // Forward declarations.
   template<typename _Tp> class complex;
@@ -1484,6 +1484,6 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
   complex<long double>::complex(const complex<double>& __z)
   : _M_value(__z.__rep()) { }
 
-_GLIBCXX_END_NAMESPACE
+} // namespace std
 
 #endif	/* _GLIBCXX_COMPLEX */

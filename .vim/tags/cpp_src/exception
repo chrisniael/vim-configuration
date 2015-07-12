@@ -126,7 +126,7 @@ _GLIBCXX_BEGIN_NAMESPACE(__gnu_cxx)
   */
   void __verbose_terminate_handler ();
 
-_GLIBCXX_END_NAMESPACE
+} // namespace std
   
 } // extern "C++"
 

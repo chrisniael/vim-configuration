@@ -147,7 +147,7 @@
   (__glibcxx_digits (T) * 643 / 2136)
 
 
-_GLIBCXX_BEGIN_NAMESPACE(std)
+namespace std {
 
   /**
    *  @brief Describes the rounding style for floating-point types.
@@ -1149,7 +1149,7 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
 #undef __glibcxx_long_double_traps
 #undef __glibcxx_long_double_tinyness_before
 
-_GLIBCXX_END_NAMESPACE
+} // namespace std
 
 #undef __glibcxx_signed
 #undef __glibcxx_min

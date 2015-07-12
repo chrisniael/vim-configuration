@@ -75,7 +75,7 @@
 #undef strerror
 #undef strlen
 
-_GLIBCXX_BEGIN_NAMESPACE(std)
+namespace std {
 
   using ::memcpy;
   using ::memmove;
@@ -125,6 +125,6 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
   strstr(char* __s1, const char* __s2)
   { return __builtin_strstr(const_cast<const char*>(__s1), __s2); }
 
-_GLIBCXX_END_NAMESPACE
+} // namespace std
 
 #endif

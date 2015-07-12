@@ -77,7 +77,7 @@
 
 #if _GLIBCXX_USE_WCHAR_T
 
-_GLIBCXX_BEGIN_NAMESPACE(std)
+namespace std {
 
   using ::wint_t;	  // cwchar
 
@@ -105,7 +105,7 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
   using ::wctrans;
   using ::wctype;
 
-_GLIBCXX_END_NAMESPACE
+} // namespace std
 
 #endif //_GLIBCXX_USE_WCHAR_T
 

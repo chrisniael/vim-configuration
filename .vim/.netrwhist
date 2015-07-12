@@ -1,10 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/Users/ShenYu/Desktop/solarized/vim-colors-solarized/autoload'
-let g:netrw_dirhist_2='/Users/ShenYu/Desktop/solarized/vim-colors-solarized'
-let g:netrw_dirhist_3='/Users/ShenYu/Desktop'
-let g:netrw_dirhist_4='/Users/ShenYu/Desktop/Linux C'
-let g:netrw_dirhist_5='/Users/ShenYu/Desktop/Solarized'
-let g:netrw_dirhist_6='/Users/ShenYu/Documents/Code/GitHub/shenyu.me/_layouts'
-let g:netrw_dirhist_7='/Users/ShenYu/Documents/Code/GitHub/gitbook-documentation/styling'
-let g:netrw_dirhist_8='/Users/ShenYu/Desktop/C++11'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/ShenYu/.vim/bundle/echofunc.vim/plugin'
+let g:netrw_dirhist_2='/Users/ShenYu/Documents/Code/GitHub/notebook/Git'
+let g:netrw_dirhist_3='/Users/ShenYu/Documents/Code/GitHub/notebook/Git/Summary'

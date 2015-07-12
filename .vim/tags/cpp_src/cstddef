@@ -50,11 +50,11 @@
 #include <bits/c++config.h>
 #include <stddef.h>
 
-_GLIBCXX_BEGIN_NAMESPACE(std)
+namespace std {
 
   using ::ptrdiff_t;
   using ::size_t;
 
-_GLIBCXX_END_NAMESPACE
+} // namespace std
 
 #endif

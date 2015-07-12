@@ -59,7 +59,7 @@
 #include <debug/debug.h>
 #include <limits>
 
-_GLIBCXX_BEGIN_NAMESPACE(std)
+namespace std {
 
   /**
    *  @if maint
@@ -369,6 +369,6 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
         { return auto_ptr<_Tp1>(this->release()); }
   };
 
-_GLIBCXX_END_NAMESPACE
+} // namespace std
 
 #endif /* _GLIBCXX_MEMORY */

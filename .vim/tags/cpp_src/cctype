@@ -65,7 +65,7 @@
 #undef tolower
 #undef toupper
 
-_GLIBCXX_BEGIN_NAMESPACE(std)
+namespace std {
 
   using ::isalnum;
   using ::isalpha;
@@ -81,6 +81,6 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
   using ::tolower;
   using ::toupper;
 
-_GLIBCXX_END_NAMESPACE
+} // namespace std
 
 #endif

@@ -44,7 +44,7 @@
 #include <istream>
 #include <ostream>
 
-_GLIBCXX_BEGIN_NAMESPACE(std)
+namespace std {
 
   // [27.7.1] template class basic_stringbuf
   /**
@@ -115,11 +115,6 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
       : __streambuf_type(), _M_mode(), _M_string(__str.data(), __str.size())
       { _M_stringbuf_init(__mode); }
 
-#if BUILDING_LIBSTDCXX
-		__attribute__((used))
-		~basic_stringbuf() {}
-#endif
-
       // Get and set:
       /**
        *  @brief  Copying out the string buffer.
@@ -173,9 +168,6 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
 	_M_sync(const_cast<char_type*>(_M_string.data()), 0, __len);
       }
 
-#if __TARGETING_4_0_DYLIB
-	// basic_stringbuf::showmanyc() not exported from libstdc++.6.0.4 dylib
-#else
       virtual streamsize
       showmanyc()
       { 
@@ -187,7 +179,7 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
 	  }
 	return __ret;
       }
-#endif
+
       virtual int_type
       underflow();
 
@@ -590,7 +582,7 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
       { _M_stringbuf.str(__s); }
     };
 
-_GLIBCXX_END_NAMESPACE
+} // namespace std
 
 #ifndef _GLIBCXX_EXPORT_TEMPLATE
 # include <bits/sstream.tcc>

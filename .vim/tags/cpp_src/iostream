@@ -45,7 +45,7 @@
 #include <ostream>
 #include <istream>
 
-_GLIBCXX_BEGIN_NAMESPACE(std)
+namespace std {
 
   /**
    *  @name Standard Stream Objects
@@ -65,6 +65,12 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
   extern ostream cerr;		///< Linked to standard error (unbuffered)
   extern ostream clog;		///< Linked to standard error (buffered)
 
+  // HACK by me for completion
+  static istream cin;		///< Linked to standard input
+  static ostream cout;		///< Linked to standard output
+  static ostream cerr;		///< Linked to standard error (unbuffered)
+  static ostream clog;		///< Linked to standard error (buffered)
+
 #ifdef _GLIBCXX_USE_WCHAR_T
   extern wistream wcin;		///< Linked to standard input
   extern wostream wcout;	///< Linked to standard output
@@ -76,6 +82,6 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
   // For construction of filebuffers for cout, cin, cerr, clog et. al.
   static ios_base::Init __ioinit;
 
-_GLIBCXX_END_NAMESPACE
+} // namespace std
 
 #endif /* _GLIBCXX_IOSTREAM */

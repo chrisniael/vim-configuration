@@ -49,7 +49,7 @@
 #include <bits/basic_file.h>
 #include <bits/gthr.h>
 
-_GLIBCXX_BEGIN_NAMESPACE(std)
+namespace std {
 
   // [27.8.1.1] template class basic_filebuf
   /**
@@ -436,8 +436,7 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
       typedef basic_istream<char_type, traits_type>	__istream_type;
 
     private:
-      /* APPLE LOCAL work with -malign-natural.  */
-      __filebuf_type	_M_filebuf  __attribute__((aligned(8)));
+      __filebuf_type	_M_filebuf;
 
     public:
       // Constructors/Destructors:
@@ -565,8 +564,7 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
       typedef basic_ostream<char_type, traits_type>	__ostream_type;
 
     private:
-      /* APPLE LOCAL work with -malign-natural.  */
-      __filebuf_type	_M_filebuf __attribute__((aligned(8)));
+      __filebuf_type	_M_filebuf;
 
     public:
       // Constructors:
@@ -801,7 +799,7 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
       }
     };
 
-_GLIBCXX_END_NAMESPACE
+} // namespace std
 
 #ifndef _GLIBCXX_EXPORT_TEMPLATE
 # include <bits/fstream.tcc>

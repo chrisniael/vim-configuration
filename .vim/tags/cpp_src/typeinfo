@@ -99,11 +99,8 @@ namespace std
 #endif
     bool operator!=(const type_info& __arg) const
     { return !operator==(__arg); }
-#if 0    
-   // APPLE LOCAL begin
-   // For ABI stability these virtuals must be ordered: __is_pointer_p, __is_function_p, __do_catch, __do_upcast
 
-   // Return true if this is a pointer type of some kind
+    // Return true if this is a pointer type of some kind
     virtual bool __is_pointer_p() const;
 
     // Return true if this is a function type
@@ -122,8 +119,6 @@ namespace std
     virtual bool __do_upcast(const __cxxabiv1::__class_type_info *__target,
 			     void **__obj_ptr) const;
 
-   // APPLE LOCAL end
-#endif
   protected:
     const char *__name;
     
@@ -149,12 +144,8 @@ namespace std
     // http://gcc.gnu.org/onlinedocs/gcc-3.0.2/gcc_6.html#SEC118
     virtual ~bad_cast() throw();
 
-#if __TARGETING_4_0_DYLIB
-	// bad_cast::what() not exported from libstdc++.6.0.4 dylib
-#else
     // See comment in eh_exception.cc.
     virtual const char* what() const throw();
-#endif
   };
   
   /** If you use a NULL pointer in a @c typeid expression, this is thrown.  */
@@ -167,12 +158,8 @@ namespace std
     // http://gcc.gnu.org/onlinedocs/gcc-3.0.2/gcc_6.html#SEC118
     virtual ~bad_typeid() throw();
 
-#if __TARGETING_4_0_DYLIB
-	// bad_typeid::what() not exported from libstdc++.6.0.4 dylib
-#else
     // See comment in eh_exception.cc.
     virtual const char* what() const throw();
-#endif
   };
 } // namespace std
 

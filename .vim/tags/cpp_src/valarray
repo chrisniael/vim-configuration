@@ -47,7 +47,7 @@
 #include <algorithm>
 #include <debug/debug.h>
 
-_GLIBCXX_BEGIN_NAMESPACE(std)
+namespace std {
 
   template<class _Clos, typename _Tp> 
     class _Expr;
@@ -87,12 +87,12 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
   template<class _Tp> class mask_array;     // masked array
   template<class _Tp> class indirect_array; // indirected array
 
-_GLIBCXX_END_NAMESPACE
+} // namespace std
 
 #include <bits/valarray_array.h>
 #include <bits/valarray_before.h>
   
-_GLIBCXX_BEGIN_NAMESPACE(std)
+namespace std {
 
   /**
    *  @brief  Smart array designed to support numeric processing.
@@ -535,7 +535,7 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
       return _M_data[__i];
     }
 
-_GLIBCXX_END_NAMESPACE
+} // namespace std
 
 #include <bits/valarray_after.h>
 #include <bits/slice_array.h>
@@ -544,7 +544,7 @@ _GLIBCXX_END_NAMESPACE
 #include <bits/mask_array.h>
 #include <bits/indirect_array.h>
 
-_GLIBCXX_BEGIN_NAMESPACE(std)
+namespace std {
 
   template<typename _Tp>
     inline
@@ -1010,7 +1010,7 @@ _DEFINE_VALARRAY_EXPR_AUGMENTED_ASSIGNMENT(>>, __shift_right)
     {									\
       typedef _BinClos<_Name, _Constant, _ValArray, _Tp, _Tp> _Closure; \
       typedef typename __fun<_Name, _Tp>::result_type _Rt;              \
-      return _Expr<_Closure, _Tp>(_Closure(__t, __v));        	        \
+      return _Expr<_Closure, _Rt>(_Closure(__t, __v));        	        \
     }
 
 _DEFINE_BINARY_OPERATOR(+, __plus)
@@ -1034,6 +1034,6 @@ _DEFINE_BINARY_OPERATOR(>=, __greater_equal)
 
 #undef _DEFINE_BINARY_OPERATOR
 
-_GLIBCXX_END_NAMESPACE
+} // namespace std
 
 #endif /* _GLIBCXX_VALARRAY */

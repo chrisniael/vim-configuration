@@ -79,7 +79,7 @@
 #undef tan
 #undef tanh
 
-_GLIBCXX_BEGIN_NAMESPACE(std)
+namespace std {
 
   // Forward declaration of a helper function.  This really should be
   // an `exported' forward declaration.
@@ -453,7 +453,7 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
     tanh(_Tp __x)
     { return __builtin_tanh(__x); }
 
-_GLIBCXX_END_NAMESPACE
+} // namespace std
 
 #if _GLIBCXX_USE_C99_MATH
 #if !_GLIBCXX_USE_C99_FP_MACROS_DYNAMIC
@@ -516,7 +516,7 @@ _GLIBCXX_BEGIN_NAMESPACE(__gnu_cxx)
     __capture_isunordered(_Tp __f1, _Tp __f2)
     { return isunordered(__f1, __f2); }
 
-_GLIBCXX_END_NAMESPACE
+} // namespace std
 
 // Only undefine the C99 FP macros, if actually captured for namespace movement
 #undef fpclassify
@@ -532,7 +532,7 @@ _GLIBCXX_END_NAMESPACE
 #undef islessgreater
 #undef isunordered
 
-_GLIBCXX_BEGIN_NAMESPACE(std)
+namespace std {
 
   template<typename _Tp>
     inline int
@@ -588,7 +588,7 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
     isunordered(_Tp __f1, _Tp __f2)
     { return ::__gnu_cxx::__capture_isunordered(__f1, __f2); }
 
-_GLIBCXX_END_NAMESPACE
+} // namespace std
 
 #endif /* _GLIBCXX_USE_C99_FP_MACROS_DYNAMIC */
 #endif

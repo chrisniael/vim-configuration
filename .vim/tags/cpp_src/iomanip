@@ -45,7 +45,7 @@
 #include <istream>
 #include <functional>
 
-_GLIBCXX_BEGIN_NAMESPACE(std)
+namespace std {
 
   // [27.6.3] standard manipulators
   // Also see DR 183.
@@ -295,6 +295,6 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
 #endif
 #endif
 
-_GLIBCXX_END_NAMESPACE
+} // namespace std
 
 #endif /* _GLIBCXX_IOMANIP */
