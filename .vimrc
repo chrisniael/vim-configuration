@@ -51,9 +51,14 @@ let g:airline_theme="solarized"
 let g:DoxygenToolkit_briefTag_pre="@Brief  " 
 let g:DoxygenToolkit_paramTag_pre="@Param " 
 let g:DoxygenToolkit_returnTag="@Return   " 
-let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------" 
-let g:DoxygenToolkit_blockFooter="--------------------------------------------------------------------------" 
-let g:DoxygenToolkit_authorName="沈煜, shenyu@shenyu.me" 
+"let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------" 
+"let g:DoxygenToolkit_blockFooter="--------------------------------------------------------------------------" 
+let g:DoxygenToolkit_authorName="沈煜, shenyu@shenyu.me"
+
+" 新建.h .cpp文件时自动插入作者信息
+if has("autocmd")
+	au! BufNewFile *.h,*.cpp exec "DoxAuthor"
+endif
 
 
 "+------------------------------------------+
@@ -148,9 +153,20 @@ let g:SuperTabCompletionContexts=['s:ContextText']
 "| @Brief 插件EchoFunc配置						|
 "| @Date 2015-07-13								|
 "+----------------------------------------------+
-" EchoFunc配置
 let g:EchoFuncKeyNext='<C-X><C-N>'
 let g:EchoFuncKeyPrev='<C-X><C-P>'
+
+
+"+----------------------------------------------+
+"| @Brief 插件EchoFunc配置						|
+"| @Date 2015-07-13								|
+"+----------------------------------------------+
+nmap <silent><C-A> :A<CR>
+imap <silent><C-A> <ESC><C-A>
+"nmap <silent><C-A><C-A> :AS<CR>
+"imap <silent><C-A><C-S> <ESC><C_A><C-S>
+nmap <silent><C-A><C-V> :AV<CR>
+imap <silent><C-A><C-V> <ESC><C-A><C-V>
 
 
 "+----------------------------------------------+
@@ -222,6 +238,7 @@ set vb t_vb=
 " 在编辑过程中，在右下角显示光标位置的状态行
 set ruler
 
+
 " 查询时非常方便，如要查找book单词，当输入到/b时，会自动找到第一
 " 个b开头的单词，当输入到/bo时，会自动找到第一个bo开头的单词，依
 " 次类推，进行查找时，使用此设置会快速找到答案，当你找要匹配的单词
@@ -235,3 +252,20 @@ set hlsearch
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+" proto文件高亮
+augroup filetype
+	au! BufRead,BufNewFile *.proto setfiletype proto
+augroup end
+
+" F9 高亮光标所在位置的单词，并输入全文替换的命令，替换单词代填充
+"nmap <F9> #<S-N>:%s/<C-R>=expand("<cword>")<CR>//g<Left><Left>
+"imap <F9> <ESC><F9>
+
+" 在普通模式下使用PageUp和PageDown键翻页，一般这两个键的默认设置就是这样的
+"nmap <PAGEUP> <C-B>
+"nmap <PAGEDOWN> <C-F>
+
+" 在编辑模式下，使用Ctrl+E和Ctrl+Y移动页面，可以少按两个键（ESC和A）
+imap <C-E> <ESC><C-E>a
+imap <C-Y> <ESC><C-Y>a
