@@ -41,7 +41,7 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1			" enable tabline
 let g:airline_theme="solarized"
-"set ambiwidth=double		" When iTerm set double-width characters, set this value
+"set ambiwidth=double		" When iTerm set double-width characters, set it
 
 
 "+------------------------------------------+
@@ -173,7 +173,6 @@ imap <silent><C-A><C-V> <ESC><C-A><C-V>
 "| @Brief 插件VimMarkDown配置                   |
 "| @Date 2015-07-13                             |
 "+----------------------------------------------+
-" VimMarkDown配置
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_no_default_key_mappings=1
 let g:vim_markdown_math=1
