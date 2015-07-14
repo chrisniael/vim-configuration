@@ -1,8 +1,8 @@
 "+------------------------------------------+
-"| @file .vimrc								|
-"| @Brief vim配置文件，使用Vundle管理插件	|
-"| @author 沈煜, shenyu@shenyu.me			|
-"| @date 2015-07-13							|
+"| @file .vimrc                             |
+"| @Brief vim配置文件，使用Vundle管理插件   |
+"| @author 沈煜, shenyu@shenyu.me           |
+"| @date 2015-07-13                         |
 "+------------------------------------------+
 
 set nocompatible              " be iMproved, required
@@ -33,8 +33,8 @@ filetype plugin indent on    " required
 
 
 "+------------------------------------------+
-"| @Brief 插件airline配置					|
-"| @Date 2015-07-13							|
+"| @Brief 插件airline配置                   |
+"| @Date 2015-07-13                         |
 "+------------------------------------------+
 set t_Co=256       " Explicitly tell Vim that the terminal supports 256 colors
 set laststatus=2
@@ -45,8 +45,8 @@ let g:airline_theme="solarized"
 
 
 "+------------------------------------------+
-"| @Brief 插件DoxygenToolKit配置			|
-"| @Date 2015-07-13							|
+"| @Brief 插件DoxygenToolKit配置            |
+"| @Date 2015-07-13                         |
 "+------------------------------------------+
 let g:DoxygenToolkit_briefTag_pre="@Brief  " 
 let g:DoxygenToolkit_paramTag_pre="@Param " 
@@ -62,8 +62,8 @@ endif
 
 
 "+------------------------------------------+
-"| @Brief 插件TagList配置，快捷键tt			|
-"| @Date 2015-07-13							|
+"| @Brief 插件TagList配置，快捷键tt         |
+"| @Date 2015-07-13                         |
 "+------------------------------------------+
 let Tlist_Auto_Highlight_Tag = 0
 let Tlist_Auto_Open=0 " 启动vim 自动打开TagList
@@ -94,8 +94,8 @@ nmap tt :TlistToggle<CR>
 
 
 "+------------------------------------------+
-"| @Brief 插件OmniCppComplete配置			|
-"| @Date 2015-07-13							|
+"| @Brief 插件OmniCppComplete配置           |
+"| @Date 2015-07-13                         |
 "+------------------------------------------+
 " ctags 索引文件 (根据已经生成的索引文件添加)
 set tags+=~/.vim/tags/cpp " 增加对C++ STL关键字智能补全的支持
@@ -137,8 +137,8 @@ let g:rubycomplete_buffer_loading = 1
 
 
 "+----------------------------------------------+
-"| @Brief 插件SuperTab配置，2.1有bug，检出2.0	|
-"| @Date 2015-07-13								|
+"| @Brief 插件SuperTab配置，2.1有bug，检出2.0   |
+"| @Date 2015-07-13                             |
 "+----------------------------------------------+
 "let g:SuperTabLongestHighlight=2 		" 选中首选的关键字
 let g:SuperTabRetainCompletionType=2 	" 记住上次的补全方式,直到按ESC退出插入模式为止
@@ -150,16 +150,16 @@ let g:SuperTabCompletionContexts=['s:ContextText']
 
 
 "+----------------------------------------------+
-"| @Brief 插件EchoFunc配置						|
-"| @Date 2015-07-13								|
+"| @Brief 插件EchoFunc配置                      |
+"| @Date 2015-07-13                             |
 "+----------------------------------------------+
 let g:EchoFuncKeyNext='<C-X><C-N>'
 let g:EchoFuncKeyPrev='<C-X><C-P>'
 
 
 "+----------------------------------------------+
-"| @Brief 插件EchoFunc配置						|
-"| @Date 2015-07-13								|
+"| @Brief 插件EchoFunc配置                      |
+"| @Date 2015-07-13                             |
 "+----------------------------------------------+
 nmap <silent><C-A> :A<CR>
 imap <silent><C-A> <ESC><C-A>
@@ -170,8 +170,8 @@ imap <silent><C-A><C-V> <ESC><C-A><C-V>
 
 
 "+----------------------------------------------+
-"| @Brief 插件VimMarkDown配置					|
-"| @Date 2015-07-13								|
+"| @Brief 插件VimMarkDown配置                   |
+"| @Date 2015-07-13                             |
 "+----------------------------------------------+
 " VimMarkDown配置
 let g:vim_markdown_folding_disabled=1
