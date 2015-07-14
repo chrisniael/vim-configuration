@@ -248,6 +248,23 @@ set incsearch
 " 高亮查询结果
 set hlsearch
 
+" 不产生备份文件
+set nobackup
+
+" 输出到终端的编码方式
+set termencoding=utf-8
+
+" 缓冲区文本的编码方式
+set encoding=utf-8
+
+" 写入文件时采用的编码方式
+set fileencoding=utf-8
+set fileencodings=utf-8
+
+" 使用的换行符类型
+set fileformat=unix
+set fileformats=unix
+
 " 重新编辑文件的时，光标定位到最后编辑的位置
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
