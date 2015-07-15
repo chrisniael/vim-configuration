@@ -38,9 +38,9 @@ filetype plugin indent on    " required
 "+------------------------------------------+
 set t_Co=256       " Explicitly tell Vim that the terminal supports 256 colors
 set laststatus=2
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1			" enable tabline
-let g:airline#extensions#tabline#buffer_nr_show = 1		" 显示buffer行号
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=1			" enable tabline
+let g:airline#extensions#tabline#buffer_nr_show=1		" 显示buffer行号
 let g:airline_theme="solarized"
 "set ambiwidth=double		" When iTerm set double-width characters, set it
 
@@ -66,19 +66,19 @@ endif
 "| @Brief 插件TagList配置，快捷键tt         |
 "| @Date 2015-07-13                         |
 "+------------------------------------------+
-let Tlist_Auto_Highlight_Tag = 0
+let Tlist_Auto_Highlight_Tag=0
 let Tlist_Auto_Open=0 " 启动vim 自动打开TagList
-let Tlist_Auto_Update = 1
+let Tlist_Auto_Update=1
 let Tlist_Close_On_Select=0
 let Tlist_Compact_Format=1  " 压缩方式
 "let Tlist_Ctags_Cmd="/usr/local/bin/ctags" 	"指定ctags路径
-let Tlist_Display_Prototype = 0
-let Tlist_Display_Tag_Scope = 1
+let Tlist_Display_Prototype=0
+let Tlist_Display_Tag_Scope=1
 let Tlist_Enable_Fold_Column=0 " 不要显示折叠树
 let Tlist_Exit_OnlyWindow=1 " 如果只有一个buffer，kill窗口也kill掉buffer
 let Tlist_File_Fold_Auto_Close=1 "不要关闭其他文件的tags，1让当前不被编辑的文件的方法列表自动折叠起来
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Highlight_Tag_On_BufEnter = 1
+let Tlist_GainFocus_On_ToggleOpen=1
+let Tlist_Highlight_Tag_On_BufEnter=1
 let Tlist_Max_Submenu_Items=25
 let Tlist_Max_Tag_length=20
 let Tlist_Process_File_Always=1
@@ -86,7 +86,7 @@ let Tlist_Show_Menu=0
 let Tlist_Show_One_File=1 " only show tags for current window
 let Tlist_Sort_Type="name" " 按名称默认排序
 let Tlist_Use_Horiz_Window=0
-let Tlist_Use_Right_Window = 0
+let Tlist_Use_Right_Window=0
 let Tlist_Use_SingleClick=0
 let Tlist_WinHeight=30
 let Tlist_WinWidth=40  " taglist窗口宽度
@@ -134,7 +134,7 @@ if has("autocmd") && exists("+omnifunc")
     \    setlocal omnifunc=syntaxcomplete#Complete |
     \ endif
 endif
-let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_buffer_loading=1
 
 
 "+----------------------------------------------+
