@@ -286,3 +286,95 @@ augroup end
 " 在编辑模式下，使用Ctrl+E和Ctrl+Y移动页面，可以少按两个键（ESC和A）
 imap <C-E> <ESC><C-E>a
 imap <C-Y> <ESC><C-Y>a
+
+" 一键编译
+func! CompileGcc()
+exec "w"
+let compilecmd="!gcc "
+let compileflag="-o %<.out 2> .%<.err"
+exec compilecmd." % ".compileflag
+exec "cfile .%<.err"
+endfunc
+
+func! CompileGpp()
+exec "w"
+let compilecmd="!g++ "
+let compileflag="-o %<.out 2> .%<.err"
+exec compilecmd." % ".compileflag
+exec "cfile .%<.err"
+endfunc
+
+func! RunPython()
+exec "w"
+exec "!python %"
+endfunc
+
+func! CompileJava()
+exec "w"
+exec "!javac %"
+endfunc
+
+func! RunShell()
+exec "w"
+exec "!bash %"
+endfunc
+
+func! CompileCode()
+exec "w"
+if &filetype == "cpp"
+exec "call CompileGpp()"
+elseif &filetype == "cc"
+exec "call CompileGpp()"
+elseif &filetype == "c"
+exec "call CompileGcc()"
+elseif &filetype == "python"
+exec "call RunPython()"
+elseif &filetype == "java"
+exec "call CompileJava()"
+elseif &filetype == "sh"
+exec "call RunShell()"
+endif
+endfunc
+
+func! RunResult()
+exec "w"
+if &filetype == "cpp"
+exec "! ./%<.out"
+elseif &filetype == "cc"
+exec "! ./%<.out"
+elseif &filetype == "c"
+exec "! ./%<.out"
+elseif &filetype == "python"
+exec "call RunPython()"
+elseif &filetype == "java"
+exec "!java %<"
+elseif &filetype == "sh"
+exec "call RunShell()"
+endif
+endfunc
+
+func! RunResultWithTest()
+exec "w"
+if &filetype == "cpp"
+exec "! ./%<.out < %<.test"
+elseif &filetype == "cc"
+exec "! ./%<.out < %<.test"
+elseif &filetype == "c"
+exec "! ./%<.out < %<.test"
+elseif &filetype == "python"
+exec "call RunPython()"
+elseif &filetype == "java"
+exec "!java %< < %<.test"
+elseif &filetype == "sh"
+exec "call RunShell()"
+endif
+endfunc
+
+map <C-j> :call CompileCode()<CR>
+imap <C-j> <ESC>:call CompileCode()<CR>
+vmap <C-j> <ESC>:call CompileCode()<CR>
+map <C-k> :call RunResult()<CR>
+map <C-l> :call RunResultWithTest()<CR>
+
+map <C-n> :cnext<CR>
+map <C-p> :cprevious<CR>
