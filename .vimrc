@@ -154,6 +154,7 @@ let g:SuperTabCompletionContexts=['s:ContextText']
 "| @Brief 插件EchoFunc配置                      |
 "| @Date 2015-07-13                             |
 "+----------------------------------------------+
+let g:EchoFuncLangsUsed=["cpp"]
 let g:EchoFuncKeyNext='<C-X><C-N>'
 let g:EchoFuncKeyPrev='<C-X><C-P>'
 
