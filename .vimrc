@@ -290,85 +290,96 @@ imap <C-Y> <ESC><C-Y>a
 
 " 一键编译
 func! CompileGcc()
-exec "w"
-let compilecmd="!gcc "
-let compileflag="-o %<.out 2> .%<.err"
-exec compilecmd." % ".compileflag
-exec "cfile .%<.err"
+	exec "w"
+	let compilecmd="!gcc "
+	let compileflag="-o %<.out 2> .%<.err"
+	exec compilecmd." % ".compileflag
+	exec "cfile .%<.err"
 endfunc
 
 func! CompileGpp()
-exec "w"
-let compilecmd="!g++ "
-let compileflag="-o %<.out 2> .%<.err"
-exec compilecmd." % ".compileflag
-exec "cfile .%<.err"
+	exec "w"
+	let compilecmd="!g++ "
+	let compileflag="-o %<.out 2> .%<.err"
+	exec compilecmd." % ".compileflag
+	exec "cfile .%<.err"
 endfunc
 
 func! RunPython()
-exec "w"
-exec "!python %"
+	exec "w"
+	exec "!python %"
 endfunc
 
 func! CompileJava()
-exec "w"
-exec "!javac %"
+	exec "w"
+	exec "!javac %"
 endfunc
 
 func! RunShell()
-exec "w"
-exec "!bash %"
+	exec "w"
+	exec "!bash %"
+endfunc
+
+func! RunLua()
+	exec "w"
+	exec "!lua %"
 endfunc
 
 func! CompileCode()
-exec "w"
-if &filetype == "cpp"
-exec "call CompileGpp()"
-elseif &filetype == "cc"
-exec "call CompileGpp()"
-elseif &filetype == "c"
-exec "call CompileGcc()"
-elseif &filetype == "python"
-exec "call RunPython()"
-elseif &filetype == "java"
-exec "call CompileJava()"
-elseif &filetype == "sh"
-exec "call RunShell()"
-endif
+	exec "w"
+	if &filetype == "cpp"
+		exec "call CompileGpp()"
+	elseif &filetype == "cc"
+		exec "call CompileGpp()"
+	elseif &filetype == "c"
+		exec "call CompileGcc()"
+	elseif &filetype == "python"
+		exec "call RunPython()"
+	elseif &filetype == "java"
+		exec "call CompileJava()"
+	elseif &filetype == "sh"
+		exec "call RunShell()"
+	elseif &filetype == "lua"
+		exec "call RunLua()"
+	endif
 endfunc
 
 func! RunResult()
-exec "w"
-if &filetype == "cpp"
-exec "! ./%<.out"
-elseif &filetype == "cc"
-exec "! ./%<.out"
-elseif &filetype == "c"
-exec "! ./%<.out"
-elseif &filetype == "python"
-exec "call RunPython()"
-elseif &filetype == "java"
-exec "!java %<"
-elseif &filetype == "sh"
-exec "call RunShell()"
-endif
+	exec "w"
+	if &filetype == "cpp"
+		exec "! ./%<.out"
+	elseif &filetype == "cc"
+		exec "! ./%<.out"
+	elseif &filetype == "c"
+		exec "! ./%<.out"
+	elseif &filetype == "python"
+		exec "call RunPython()"
+	elseif &filetype == "java"
+		exec "!java %<"
+	elseif &filetype == "sh"
+		exec "call RunShell()"
+	elseif &filetype == "lua"
+		exec "call RunLua()"
+	endif
 endfunc
 
 func! RunResultWithTest()
-exec "w"
-if &filetype == "cpp"
-exec "! ./%<.out < %<.test"
-elseif &filetype == "cc"
-exec "! ./%<.out < %<.test"
-elseif &filetype == "c"
-exec "! ./%<.out < %<.test"
-elseif &filetype == "python"
-exec "call RunPython()"
-elseif &filetype == "java"
-exec "!java %< < %<.test"
-elseif &filetype == "sh"
-exec "call RunShell()"
-endif
+	exec "w"
+	if &filetype == "cpp"
+		exec "! ./%<.out < %<.test"
+	elseif &filetype == "cc"
+		exec "! ./%<.out < %<.test"
+	elseif &filetype == "c"
+		exec "! ./%<.out < %<.test"
+	elseif &filetype == "python"
+		exec "call RunPython()"
+	elseif &filetype == "java"
+		exec "!java %< < %<.test"
+	elseif &filetype == "sh"
+		exec "call RunShell()"
+	elseif &filetype == "lua"
+		exec "call RunLua()"
+	endif
 endfunc
 
 map <C-j> :call CompileCode()<CR>
