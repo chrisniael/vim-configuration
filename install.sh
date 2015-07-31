@@ -4,6 +4,7 @@
 # @brief 一键部署vim插件和配置
 # @date 2015/07/31
 
+set -e
 
 HOME_DIR=~
 VIM_CONFIG_REPO=https://github.com/chrisniael/vim-configuration.git
@@ -19,6 +20,9 @@ VIM_LOCAL_CONFIG_FILE_BACK=$VIM_LOCAL_CONFIG_FILE-backup
 VIM_LOCAL_CONFIG_DIR=$HOME_DIR/$VIM_CONFIG_DIR
 VIM_LOCAL_CONFIG_DIR_BACK=$VIM_LOCAL_CONFIG_DIR-backup
 
+
+# clone vim-configuration仓库
+git clone $VIM_CONFIG_REPO $VIM_CONFIG_LOCAL_REPO
 
 # 备份原配置
 if [ -f $VIM_LOCAL_CONFIG_FILE ]
@@ -38,11 +42,11 @@ then
 	echo "备份 $VIM_LOCAL_CONFIG_DIR 至 $VIM_LOCAL_CONFIG_DIR_BACK"
 fi
 
-# 安装Vundle
-git clone $VUNDLE_REPO $VUNDLE_LOCAL_REPO 
+/bin/cp -rf $VIM_CONFIG_LOCAL_REPO/$VIM_CONFIG_DIR $HOME_DIR
 
-# clone vim-configuration仓库
-git clone $VIM_CONFIG_REPO $VIM_CONFIG_LOCAL_REPO
+## 安装Vundle
+echo $VUNDLE_REPO $VUNDLE_LOCAL_REPO
+git clone $VUNDLE_REPO $VUNDLE_LOCAL_REPO 
 
 # 查找插件列表与配置的分割行
 cd $VIM_CONFIG_LOCAL_REPO
@@ -51,8 +55,6 @@ sep_line=$(sed -n "/^${SEP_STRING}/=" $VIM_CONFIG_FILE)
 # 写入Vundle插件列表
 sed -n "1,${sep_line}p" $VIM_CONFIG_FILE > $VIM_LOCAL_CONFIG_FILE
 
-/bin/cp -rf $VIM_CONFIG_LOCAL_REPO/$VIM_CONFIG_DIR $HOME_DIR/$VIM_CONFIG_DIR
-
 # 安装所有插件
 vim +BundleInstall +qa
 
@@ -60,7 +62,7 @@ vim +BundleInstall +qa
 cd $SUPERTAB_DIR
 git checkout 2.0
 
-# 写入其他配置
+## 写入其他配置
 cd $VIM_CONFIG_LOCAL_REPO
 sep_next_line=$((${sep_line}+1))
 sed -n "${sep_next_line},\$p" $VIM_CONFIG_FILE >> $VIM_LOCAL_CONFIG_FILE
