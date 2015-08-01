@@ -8,7 +8,7 @@ set -e
 
 HOME_DIR=~
 VIM_CONFIG_REPO=https://github.com/chrisniael/vim-configuration.git
-VIM_CONFIG_LOCAL_REPO=$HOME_DIR/vim-configuration
+VIM_CONFIG_LOCAL_REPO=$HOME_DIR/.vim-configuration
 VIM_CONFIG_FILE=.vimrc
 VIM_CONFIG_DIR=.vim
 SEP_STRING="filetype plugin indent on"
@@ -21,8 +21,15 @@ VIM_LOCAL_CONFIG_DIR=$HOME_DIR/$VIM_CONFIG_DIR
 VIM_LOCAL_CONFIG_DIR_BACK=$VIM_LOCAL_CONFIG_DIR-backup
 
 
-# clone vim-configuration仓库
-git clone $VIM_CONFIG_REPO $VIM_CONFIG_LOCAL_REPO
+if [ -d $VIM_CONFIG_LOCAL_REPO ]
+then
+	cd $VIM_CONFIG_LOCAL_REPO
+	git pull origin master
+else
+	# clone vim-configuration仓库
+	git clone $VIM_CONFIG_REPO $VIM_CONFIG_LOCAL_REPO
+fi
+
 
 # 备份原配置
 if [ -f $VIM_LOCAL_CONFIG_FILE ]
