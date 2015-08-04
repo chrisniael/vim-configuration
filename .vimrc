@@ -288,6 +288,23 @@ augroup end
 imap <C-E> <ESC><C-E>a
 imap <C-Y> <ESC><C-Y>a
 
+" 自定义命令: Ctags生成tags文件
+func! Ctags()
+	exec "! ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -o tags"
+endfunc
+
+if !exists(':Ctags')
+	command! Ctags call Ctags()
+endif
+
+if !exists(':W')
+	command! W w
+endif
+
+if !exists(':Q')
+	command! Q q
+endif
+
 " 一键编译
 func! CompileGcc()
 	exec "w"
