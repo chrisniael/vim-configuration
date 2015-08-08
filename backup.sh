@@ -1,6 +1,6 @@
 #!/bin/bash
 # +---------------------------------+
-# | @file install.sh                |
+# | @file backup.sh                |
 # | @author 沈煜, shenyu@shenyu.me  |
 # | @brief 一键备份vim插件和配置    |
 # | @date 2015/08/02                |
