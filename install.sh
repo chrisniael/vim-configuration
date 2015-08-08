@@ -1,8 +1,10 @@
 #!/bin/bash
-# @file install.sh
-# @author 沈煜, shenyu@shenyu.me
-# @brief 一键部署vim插件和配置
-# @date 2015/07/31
+# +---------------------------------+
+# | @file install.sh                |
+# | @author 沈煜, shenyu@shenyu.me  |
+# | @brief 一键部署vim插件和配置    |
+# | @date 2015/07/31                |
+# +---------------------------------+
 
 set -e
 
