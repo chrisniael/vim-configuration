@@ -49,9 +49,10 @@ let g:airline_theme="solarized"
 "| @Brief 插件DoxygenToolKit配置            |
 "| @Date 2015-07-13                         |
 "+------------------------------------------+
-let g:DoxygenToolkit_briefTag_pre="@Brief  " 
-let g:DoxygenToolkit_paramTag_pre="@Param " 
-let g:DoxygenToolkit_returnTag="@Return   " 
+"let g:DoxygenToolkit_briefTag_pre="@brief " 
+"let g:DoxygenToolkit_paramTag_pre="@param " 
+"let g:DoxygenToolkit_returnTag="@return " 
+let g:DoxygenToolkit_versionString="1.0"
 "let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------" 
 "let g:DoxygenToolkit_blockFooter="--------------------------------------------------------------------------" 
 let g:DoxygenToolkit_authorName="沈煜, shenyu@shenyu.me"
