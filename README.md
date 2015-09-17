@@ -9,10 +9,10 @@
 curl -L https://raw.github.com/chrisniael/vim-configuration/master/install.sh | sh
 ```
 
-部分 vim 插件基于 ctags （Mac OS 自带的 ctags 并非 vim 插件需要的 ctags）。
-
 
 ## <a id="install-ctags">安装 *ctags*</a>
+
+部分 vim 插件基于 ctags （Mac OS 自带的 ctags 并非 vim 插件需要的 ctags）。
 
 * `curl -L http://prdownloads.sourceforge.net/ctags/ctags-5.8.tar.gz -o ctags-5.8.tar.gz` 下载 [ctags-5.8](http://ctags.sourceforge.net/) 源码
 
