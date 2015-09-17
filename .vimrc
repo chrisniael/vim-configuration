@@ -49,12 +49,12 @@ let g:airline_theme="solarized"
 "| @Brief 插件DoxygenToolKit配置            |
 "| @Date 2015-07-13                         |
 "+------------------------------------------+
-"let g:DoxygenToolkit_briefTag_pre="@brief " 
-"let g:DoxygenToolkit_paramTag_pre="@param " 
-"let g:DoxygenToolkit_returnTag="@return " 
+"let g:DoxygenToolkit_briefTag_pre="@brief "
+"let g:DoxygenToolkit_paramTag_pre="@param "
+"let g:DoxygenToolkit_returnTag="@return "
 let g:DoxygenToolkit_versionString="1.0.0"
-"let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------" 
-"let g:DoxygenToolkit_blockFooter="--------------------------------------------------------------------------" 
+"let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
+"let g:DoxygenToolkit_blockFooter="--------------------------------------------------------------------------"
 let g:DoxygenToolkit_authorName="沈煜, shenyu@shenyu.me"
 
 " 新建.h .cpp文件时自动插入作者信息
@@ -71,8 +71,8 @@ let Tlist_Auto_Highlight_Tag=0
 let Tlist_Auto_Open=0 " 启动vim 自动打开TagList
 let Tlist_Auto_Update=1
 let Tlist_Close_On_Select=0
-let Tlist_Compact_Format=1  " 压缩方式
-"let Tlist_Ctags_Cmd="/usr/local/bin/ctags" 	"指定ctags路径
+let Tlist_Compact_Format=1 " 压缩方式
+"let Tlist_Ctags_Cmd="/usr/local/bin/ctags" "指定ctags路径
 let Tlist_Display_Prototype=0
 let Tlist_Display_Tag_Scope=1
 let Tlist_Enable_Fold_Column=0 " 不要显示折叠树
@@ -189,7 +189,7 @@ syntax enable
 set number
 
 " 设置Backspace模式
-set backspace=indent,eol,start	
+set backspace=indent,eol,start
 
 " 设置颜色模式为solarized
 let g:solarized_termtrans=1
@@ -209,7 +209,7 @@ set encoding=utf-8
 set number
 
 " 自动切换工作路径
-"set autochdir 
+"set autochdir
 
 " 记录历史的行数
 set history=1000
