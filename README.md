@@ -9,6 +9,22 @@
 curl -L https://raw.github.com/chrisniael/vim-configuration/master/install.sh | sh
 ```
 
+部分 vim 插件基于 ctags （Mac OS 自带的 ctags 并非 vim 插件需要的 ctags）。
+
+
+## <a id="install-ctags">安装 *ctags*</a>
+
+* `curl -L http://prdownloads.sourceforge.net/ctags/ctags-5.8.tar.gz -o ctags-5.8.tar.gz` 下载 [ctags-5.8](http://ctags.sourceforge.net/) 源码
+
+* `tar -zxvf ctags-5.8.tar.gz` 解压文件
+
+* `cd ctags` 进入 *ctags-5.8* 源码目录
+
+* `make` 编译
+
+* 编译成功以后，执行 `make install` 进行安装
+
+
 ## 插件清单
 
 * ### <a id="vundle">Vundle</a>
@@ -59,7 +75,7 @@ curl -L https://raw.github.com/chrisniael/vim-configuration/master/install.sh | 
         
 * ### <a id="echofunc">Echofunc</a>
 
-    快速查看函数原型。
+    快速查看函数原型，基于 [ctags](#install-ctags)。
     
     ![echofunc](images/echofunc.gif)
 
@@ -78,7 +94,7 @@ curl -L https://raw.github.com/chrisniael/vim-configuration/master/install.sh | 
 
 * ### <a id="omnicpp">OmniCppComplete</a>
 
-    快速补全C++代码。
+    快速补全C++代码，基于 [ctags](#install-ctags)。
     
     ![omni-cpp-complete](images/omni-cpp-complete.gif)
 
@@ -100,7 +116,7 @@ curl -L https://raw.github.com/chrisniael/vim-configuration/master/install.sh | 
 
 * ### <a id="snipmate">SnipMate</a>
 
-    代码补全插件。
+    代码补全插件，基于 [ctags](#install-ctags)。
     
     ![snipmate](images/snipmate.gif)
 
@@ -121,7 +137,7 @@ curl -L https://raw.github.com/chrisniael/vim-configuration/master/install.sh | 
 
 * ### <a id="supertab">SuperTab</a>
 
-    使用 `Tab` 键补全代码。
+    使用 `Tab` 键补全代码，基于 [ctags](#install-ctags)。
     
     ![supertab](images/supertab.gif)
 
@@ -134,7 +150,7 @@ curl -L https://raw.github.com/chrisniael/vim-configuration/master/install.sh | 
 
 * ### <a id="taglist">TagList</a>
 
-    代码结构化视图。
+    代码结构化视图，基于 [ctags](#install-ctags)。
     
     ![taglist](images/taglist.gif)
 
@@ -150,7 +166,6 @@ curl -L https://raw.github.com/chrisniael/vim-configuration/master/install.sh | 
 * ### <a id="vim-markdown">vim-markdown</a>
 
     markdown 语法高亮
-
 
 
 ## 自定义快捷键
@@ -170,4 +185,3 @@ curl -L https://raw.github.com/chrisniael/vim-configuration/master/install.sh | 
 * ### `Tab`
 
 	[SuperTab](#supertab) 和 [snipMate](#snipmate) 插件的功能键，可以补全关键字和快速插入预定义的语法格式。
-
