@@ -22,7 +22,7 @@ curl -L https://raw.github.com/chrisniael/vim-configuration/master/install.sh | 
 
 * `make` 编译
 
-* 编译成功以后，执行 `make install` 进行安装
+* 编译成功以后，执行 `sudo make install` 进行安装
 
 
 ## 插件清单
