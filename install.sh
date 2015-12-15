@@ -20,7 +20,7 @@ VIM_LOCAL_CONFIG_DIR_BACK=$VIM_LOCAL_CONFIG_DIR-backup
 VIM_CONFIG_DIR_TAR_FILE=.vim.tar.bz2
 CTAGS_VERSION=ctags-5.8
 CTAGS_TAR_FILE=$CTAGS_VERSION.tar.gz
-CTAGS_DOWNLOAD_URL=http://prdownloads.sourceforge.net/ctags/$CTAGS_FILE
+CTAGS_DOWNLOAD_URL=http://prdownloads.sourceforge.net/ctags/$CTAGS_TAR_FILE
 CTAGS_DIR=$CTAGS_VERSION
 
 function install_ctags()
