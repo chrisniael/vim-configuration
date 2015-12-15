@@ -18,22 +18,7 @@ VIM_LOCAL_CONFIG_FILE_BACK=$VIM_LOCAL_CONFIG_FILE-backup
 VIM_LOCAL_CONFIG_DIR=$HOME_DIR/$VIM_CONFIG_DIR
 VIM_LOCAL_CONFIG_DIR_BACK=$VIM_LOCAL_CONFIG_DIR-backup
 VIM_CONFIG_DIR_TAR_FILE=.vim.tar.bz2
-CTAGS_VERSION=ctags-5.8
-CTAGS_TAR_FILE=$CTAGS_VERSION.tar.gz
-CTAGS_DOWNLOAD_URL=http://prdownloads.sourceforge.net/ctags/$CTAGS_TAR_FILE
-CTAGS_DIR=$CTAGS_VERSION
 
-function install_ctags()
-{
-	# 安装ctags
-	curl -L $CTAGS_DOWNLOAD_URL -o "${CTAGS_TAR_FILE}"
-	tar xf $CTAGS_TAR_FILE
-	cd $CTAGS_DIR/
-
-	./configure
-	make
-	sudo make install
-}
 
 # clone/update 配置仓库
 if [ -d $VIM_CONFIG_LOCAL_REPO ]
@@ -44,17 +29,6 @@ else
 	# clone vim-configuration仓库
 	git clone --depth=1 $VIM_CONFIG_REPO $VIM_CONFIG_LOCAL_REPO
 fi
-
-case $(uname -s) in
-	"Linux")
-		hash ctags >/dev/null 2>&1 || {
-			install_ctags
-		}
-		;;
-	"Darwin")
-			install_ctags
-		;;
-esac
 
 # 备份原配置
 if [ -f $VIM_LOCAL_CONFIG_FILE ]
