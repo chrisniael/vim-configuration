@@ -26,6 +26,7 @@ Plugin 'a.vim'
 Plugin 'DoxygenToolkit.vim'
 Plugin 'echofunc.vim'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'VimIM'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -39,10 +40,10 @@ filetype plugin indent on    " required
 set t_Co=256       " Explicitly tell Vim that the terminal supports 256 colors
 set laststatus=2
 let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled=1			" enable tabline
-let g:airline#extensions#tabline#buffer_nr_show=1		" 显示buffer行号
+let g:airline#extensions#tabline#enabled=1    " enable tabline
+let g:airline#extensions#tabline#buffer_nr_show=1    " 显示buffer行号
 let g:airline_theme="solarized"
-"set ambiwidth=double		" When iTerm set double-width characters, set it
+"set ambiwidth=double    " When iTerm set double-width characters, set it
 
 
 "+------------------------------------------+
@@ -104,7 +105,7 @@ set tags+=~/.vim/tags/cpp " 增加对C++ STL关键字智能补全的支持
 "set tags+=~/.vim/tags/boost "增加对Boost库关键字补全的支持，但是太大，不建议配置
 
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif " 自动关闭补全窗口
-set completeopt=menuone,menu	" 可选参数值 longest,menu
+set completeopt=menuone,menu    " 可选参数值 longest,menu
 
 let OmniCpp_NamespaceSearch=2
 let OmniCpp_GlobalScopeSearch=1
@@ -130,10 +131,10 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 if has("autocmd") && exists("+omnifunc")
-     autocmd Filetype *
-    \ if &omnifunc == "" |
-    \    setlocal omnifunc=syntaxcomplete#Complete |
-    \ endif
+	autocmd Filetype *
+	\ if &omnifunc == "" |
+	\    setlocal omnifunc=syntaxcomplete#Complete |
+	\ endif
 endif
 let g:rubycomplete_buffer_loading=1
 
@@ -142,12 +143,12 @@ let g:rubycomplete_buffer_loading=1
 "| @Brief 插件SuperTab配置，2.1有bug，检出2.0   |
 "| @Date 2015-07-13                             |
 "+----------------------------------------------+
-"let g:SuperTabLongestHighlight=2 		" 选中首选的关键字
-let g:SuperTabRetainCompletionType=2 	" 记住上次的补全方式,直到按ESC退出插入模式为止
-let g:SuperTabDefaultCompletionType="<C-X><C-N><C-P>" 	" 默认的执行操作
+"let g:SuperTabLongestHighlight=2    " 选中首选的关键字
+let g:SuperTabRetainCompletionType=2    " 记住上次的补全方式,直到按ESC退出插入模式为止
+let g:SuperTabDefaultCompletionType="<C-X><C-N><C-P>"    " 默认的执行操作
 "let g:SuperTabDefaultCompletionType="context"
 "let g:SuperTabContextDefaultCompletionType="<C-N><C-P>"  " 对于context的默认的执行操作
-let g:SuperTabNoCompleteAfter=['/', ',', '\s', ':', ';', ')', '}', '{', '(', ')', '<', '>']	" 在这些字符之后不补全
+let g:SuperTabNoCompleteAfter=['/', ',', '\s', ':', ';', ')', '}', '{', '(', ')', '<', '>']    " 在这些字符之后不补全
 let g:SuperTabCompletionContexts=['s:ContextText']
 
 
@@ -182,6 +183,14 @@ let g:vim_markdown_math=1
 let g:vim_markdown_frontmatter=1
 
 
+"+----------------------------------------------+
+"| @Brief 插件VimMarkDown配置                   |
+"| @Date 2015-07-13                             |
+"+----------------------------------------------+
+let g:Vimim_cloud=-1
+let g:Vimim_map='tab_as_gi'
+
+
 " 语法高亮
 syntax enable
 
@@ -197,7 +206,7 @@ let g:solarized_menu=0
 colorscheme solarized
 
 set foldmethod=syntax
-set foldlevel=100	" 启动vim时不自动折叠代码
+set foldlevel=100    " 启动vim时不自动折叠代码
 
 " 帮助显示中文
 set helplang=cn
