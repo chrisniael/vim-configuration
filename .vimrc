@@ -27,6 +27,8 @@ Plugin 'DoxygenToolkit.vim'
 Plugin 'echofunc.vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'VimIM'
+Plugin 'tpope/vim-dispatch'
+Plugin 'mileszs/ack.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -189,6 +191,15 @@ let g:vim_markdown_frontmatter=1
 "+----------------------------------------------+
 let g:Vimim_cloud=-1
 let g:Vimim_map='tab_as_gi'
+
+
+"+----------------------------------------------+
+"| @Brief 插件ack配置                           |
+"| @Date 2015-12-30                             |
+"+----------------------------------------------+
+let g:ack_default_options=' -s -H --nocolor --nogroup --column --smart-case --follow'
+let g:ackhighlight=1
+let g:ack_use_dispatch=1
 
 
 " 语法高亮
