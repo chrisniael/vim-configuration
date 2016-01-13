@@ -29,6 +29,8 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'VimIM'
 Plugin 'tpope/vim-dispatch'
 Plugin 'mileszs/ack.vim'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -197,7 +199,7 @@ let g:Vimim_map='tab_as_gi'
 "| @Brief 插件ack配置                           |
 "| @Date 2015-12-30                             |
 "+----------------------------------------------+
-let g:ack_default_options=' -s -H --nocolor --nogroup --column --smart-case --follow'
+let g:ack_default_options=' -s -H --nocolor --nogroup --column --smart-case --follow --ignore-file=is:tags'
 let g:ackhighlight=1
 let g:ack_use_dispatch=1
 
