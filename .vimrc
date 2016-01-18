@@ -188,8 +188,8 @@ let g:vim_markdown_frontmatter=1
 
 
 "+----------------------------------------------+
-"| @Brief 插件VimMarkDown配置                   |
-"| @Date 2015-07-13                             |
+"| @Brief 插件VimIM配置                         |
+"| @Date 2015-12-23                             |
 "+----------------------------------------------+
 let g:Vimim_cloud=-1
 let g:Vimim_map='tab_as_gi'
