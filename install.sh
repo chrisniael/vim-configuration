@@ -18,7 +18,7 @@ VIM_LOCAL_CONFIG_FILE_BACK=$VIM_LOCAL_CONFIG_FILE-backup
 VIM_LOCAL_CONFIG_DIR=$HOME_DIR/$VIM_CONFIG_DIR
 VIM_LOCAL_CONFIG_DIR_BACK=$VIM_LOCAL_CONFIG_DIR-backup
 
-read "Backup old vim config? (y/n, default: y)" backup
+read -p "Backup old vim config? (y/n, default: y) " backup
 
 # clone/update 配置仓库
 if [ -d $VIM_CONFIG_LOCAL_REPO ]
@@ -49,10 +49,13 @@ then
 fi
 
 /bin/cp -f $VIM_CONFIG_LOCAL_REPO/$VIM_CONFIG_FILE $HOME_DIR/
-/bin/cp -r $VIM_CONFIG_LOCAL_REPO/$VIM_CONFIG_DIR
+/bin/cp -r $VIM_CONFIG_LOCAL_REPO/$VIM_CONFIG_DIR $HOME_DIR/
 
+# 安装 Vundle
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+# 安装插件
 vim +BundleInstall +qa
-
 
 # SuperTab 最新版本 2.1 使用起来有点问题
 #  * 光标在行首时，按 Tab 键也会出现补全窗口
