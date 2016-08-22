@@ -6,7 +6,7 @@
 ## 一键配置部署
 
 ```shell
-curl -L https://raw.github.com/chrisniael/vim-configuration/master/install.sh | sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/chrisniael/vim-configuration/master/install.sh)"
 ```
 
 
