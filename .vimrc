@@ -14,7 +14,8 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'taglist.vim'
 Plugin 'OmniCppComplete'
@@ -31,6 +32,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'mileszs/ack.vim'
 Plugin 'L9'
 Plugin 'FuzzyFinder'
+Plugin 'AfterColors.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -188,8 +190,8 @@ let g:vim_markdown_frontmatter=1
 
 
 "+----------------------------------------------+
-"| @Brief 插件VimIM配置                         |
-"| @Date 2015-12-23                             |
+"| @Brief 插件VimMarkDown配置                   |
+"| @Date 2015-07-13                             |
 "+----------------------------------------------+
 let g:Vimim_cloud=-1
 let g:Vimim_map='tab_as_gi'
@@ -213,10 +215,15 @@ set number
 " 设置Backspace模式
 set backspace=indent,eol,start
 
+" 背景使用黑色（使用背景黑色后，很多主题颜色会随之改变，不建议设置）
+set background=dark
+
 " 设置颜色模式为solarized
 let g:solarized_termtrans=1
 let g:solarized_menu=0
 colorscheme solarized
+
+set cursorline    " 突出显示当前行
 
 set foldmethod=syntax
 set foldlevel=100    " 启动vim时不自动折叠代码
@@ -236,8 +243,6 @@ set number
 " 记录历史的行数
 set history=1000
 
-" 背景使用黑色（使用背景黑色后，很多主题颜色会随之改变，不建议设置）
-set background=dark
 
 " 下面两行在进行编写代码时，在格式对起上很有用；
 " 第一行，vim使用自动对起，也就是把当前行的对起格式应用到下一行；
@@ -247,8 +252,11 @@ set autoindent
 set smartindent
 
 " 第一行设置tab键为4个空格，第二行设置当行之间交错时使用4个空格
+set expandtab
 set tabstop=4
+set softtabstop=0
 set shiftwidth=4
+set smarttab
 
 " 设置匹配模式，例如当光标位于一个左括号上时，会高亮相应的那个右括号
 set showmatch
@@ -288,6 +296,9 @@ set fileencodings=utf-8
 " 使用的换行符类型
 set fileformat=unix
 set fileformats=unix
+
+" 设置鼠标模式
+set mouse=h
 
 " 重新编辑文件的时，光标定位到最后编辑的位置
 if has("autocmd")
