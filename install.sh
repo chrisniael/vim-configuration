@@ -17,8 +17,8 @@ VIM_LOCAL_CONFIG_FILE=$HOME_DIR/$VIM_CONFIG_FILE
 VIM_LOCAL_CONFIG_FILE_BACK=$VIM_LOCAL_CONFIG_FILE-backup
 VIM_LOCAL_CONFIG_DIR=$HOME_DIR/$VIM_CONFIG_DIR
 VIM_LOCAL_CONFIG_DIR_BACK=$VIM_LOCAL_CONFIG_DIR-backup
-VIM_CONFIG_DIR_TAR_FILE=.vim.tar.bz2
 
+read "Backup old vim config? (y/n, default: y)" backup
 
 # clone/update 配置仓库
 if [ -d $VIM_CONFIG_LOCAL_REPO ]
@@ -31,13 +31,13 @@ else
 fi
 
 # 备份原配置
-if [ -f $VIM_LOCAL_CONFIG_FILE ]
+if [ -f $VIM_LOCAL_CONFIG_FILE ] && [ "$backup" != "n" ]
 then
 	/bin/mv -f $VIM_LOCAL_CONFIG_FILE $VIM_LOCAL_CONFIG_FILE_BACK
-	echo "备份 $VIM_LOCAL_CONFIG_FILE 至 $VIM_LOCAL_CONFIG_FILE_BACK"
+	echo "mv -f $VIM_LOCAL_CONFIG_FILE $VIM_LOCAL_CONFIG_FILE_BACK"
 fi
 
-if [ -d $VIM_LOCAL_CONFIG_DIR ]
+if [ -d $VIM_LOCAL_CONFIG_DIR ] && [ "$backup" != "n" ]
 then
 	if [ -d $VIM_LOCAL_CONFIG_DIR_BACK ]
 	then
@@ -45,14 +45,23 @@ then
 	fi
 
 	/bin/mv -f $VIM_LOCAL_CONFIG_DIR $VIM_LOCAL_CONFIG_DIR_BACK
-	echo "备份 $VIM_LOCAL_CONFIG_DIR 至 $VIM_LOCAL_CONFIG_DIR_BACK"
+	echo "mv -f $VIM_LOCAL_CONFIG_DIR $VIM_LOCAL_CONFIG_DIR_BACK"
 fi
 
 /bin/cp -f $VIM_CONFIG_LOCAL_REPO/$VIM_CONFIG_FILE $HOME_DIR/
-/bin/cp -rf $VIM_CONFIG_LOCAL_REPO/$VIM_CONFIG_DIR_TAR_FILE $HOME_DIR/
+/bin/cp -r $VIM_CONFIG_LOCAL_REPO/$VIM_CONFIG_DIR
+
+vim +BundleInstall +qa
+
+
+# SuperTab 最新版本 2.1 使用起来有点问题
+#  * 光标在行首时，按 Tab 键也会出现补全窗口
+#  * 与 SnipMate 插件冲突，导致某些功能失效，比如 在某些字符后面不进行补全
+# 这里改用 2.0 版本
+
+cd $HOME_DIR/.vim/bundle/supertab
+git checkout 2.0
 
 cd $HOME_DIR
-tar jxvf $VIM_CONFIG_DIR_TAR_FILE
 
-/bin/rm -f $HOME_DIR/$VIM_CONFIG_DIR_TAR_FILE
 /bin/rm -rf $VIM_CONFIG_LOCAL_REPO
