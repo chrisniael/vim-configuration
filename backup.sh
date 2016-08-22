@@ -21,7 +21,8 @@ then
 fi
 
 rm -rf $PROJ_DIR/$VIM_CONFIG_DIR
-cp -r $HOME/$VIM_CONFIG_DIR $PROJ_DIR
+cp -r $HOME/$VIM_CONFIG_DIR $PROJ_DIR/
+rm -rf $PROJ_DIR/$VIM_CONFIG_DIR/bundle
 
 cp -f $HOME/$VIM_CONFIG_FILE $PROJ_DIR/
 
