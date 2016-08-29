@@ -26,4 +26,6 @@ rm -rf $PROJ_DIR/$VIM_CONFIG_DIR/bundle
 
 cp -f $HOME/$VIM_CONFIG_FILE $PROJ_DIR/
 
+rm -rf $PROJ_DIR/.vim/.netrwhist
+
 echo "success."
