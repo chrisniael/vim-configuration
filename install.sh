@@ -35,6 +35,8 @@ if [ -f $VIM_LOCAL_CONFIG_FILE ] && [ "$backup" != "n" ]
 then
 	/bin/mv -f $VIM_LOCAL_CONFIG_FILE $VIM_LOCAL_CONFIG_FILE_BACK
 	echo "mv -f $VIM_LOCAL_CONFIG_FILE $VIM_LOCAL_CONFIG_FILE_BACK"
+else
+    /bin/rm -rf $VIM_LOCAL_CONFIG_FILE
 fi
 
 if [ -d $VIM_LOCAL_CONFIG_DIR ] && [ "$backup" != "n" ]
@@ -46,6 +48,8 @@ then
 
 	/bin/mv -f $VIM_LOCAL_CONFIG_DIR $VIM_LOCAL_CONFIG_DIR_BACK
 	echo "mv -f $VIM_LOCAL_CONFIG_DIR $VIM_LOCAL_CONFIG_DIR_BACK"
+else
+    /bin/rm -rf $VIM_LOCAL_CONFIG_DIR
 fi
 
 /bin/cp -f $VIM_CONFIG_LOCAL_REPO/$VIM_CONFIG_FILE $HOME_DIR/
