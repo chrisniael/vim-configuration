@@ -66,7 +66,7 @@ let g:DoxygenToolkit_authorName="沈煜, shenyu@shenyu.me"
 
 " 新建.h .cpp文件时自动插入作者信息
 if has("autocmd")
-	au! BufNewFile *.h,*.cpp exec "DoxAuthor"
+    au! BufNewFile *.h,*.cpp exec "DoxAuthor"
 endif
 
 
@@ -137,10 +137,10 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 if has("autocmd") && exists("+omnifunc")
-	autocmd Filetype *
-	\ if &omnifunc == "" |
-	\    setlocal omnifunc=syntaxcomplete#Complete |
-	\ endif
+    autocmd Filetype *
+    \ if &omnifunc == "" |
+    \    setlocal omnifunc=syntaxcomplete#Complete |
+    \ endif
 endif
 let g:rubycomplete_buffer_loading=1
 
@@ -168,7 +168,7 @@ let g:EchoFuncKeyPrev='<C-X><C-P>'
 
 
 "+----------------------------------------------+
-"| @Brief 插件EchoFunc配置                      |
+"| @Brief 插件A配置                             |
 "| @Date 2015-07-13                             |
 "+----------------------------------------------+
 nmap <silent><C-A> :A<CR>
@@ -190,7 +190,7 @@ let g:vim_markdown_frontmatter=1
 
 
 "+----------------------------------------------+
-"| @Brief 插件VimMarkDown配置                   |
+"| @Brief 插件VimIM配置                         |
 "| @Date 2015-07-13                             |
 "+----------------------------------------------+
 let g:Vimim_cloud=-1
@@ -307,7 +307,7 @@ endif
 
 " proto文件高亮
 augroup filetype
-	au! BufRead,BufNewFile *.proto setfiletype proto
+    au! BufRead,BufNewFile *.proto setfiletype proto
 augroup end
 
 " F9 高亮光标所在位置的单词，并输入全文替换的命令，替换单词代填充
@@ -324,113 +324,113 @@ imap <C-Y> <ESC><C-Y>a
 
 " 自定义命令: Ctags生成tags文件
 func! Ctags()
-	exec "! ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -o tags"
+    exec "! ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -o tags"
 endfunc
 
 if !exists(':Ctags')
-	command! Ctags call Ctags()
+    command! Ctags call Ctags()
 endif
 
 if !exists(':W')
-	command! W w
+    command! W w
 endif
 
 if !exists(':Q')
-	command! Q q
+    command! Q q
 endif
 
 " 一键编译
 func! CompileGcc()
-	exec "w"
-	let compilecmd="!gcc "
-	let compileflag="-o %<.out 2> .%<.err"
-	exec compilecmd." % ".compileflag
-	exec "cfile .%<.err"
+    exec "w"
+    let compilecmd="!gcc "
+    let compileflag="-o %<.out 2> .%<.err"
+    exec compilecmd." % ".compileflag
+    exec "cfile .%<.err"
 endfunc
 
 func! CompileGpp()
-	exec "w"
-	let compilecmd="!g++ "
-	let compileflag="-o %<.out 2> .%<.err"
-	exec compilecmd." % ".compileflag
-	exec "cfile .%<.err"
+    exec "w"
+    let compilecmd="!g++ "
+    let compileflag="-o %<.out 2> .%<.err"
+    exec compilecmd." % ".compileflag
+    exec "cfile .%<.err"
 endfunc
 
 func! RunPython()
-	exec "w"
-	exec "!python %"
+    exec "w"
+    exec "!python %"
 endfunc
 
 func! CompileJava()
-	exec "w"
-	exec "!javac %"
+    exec "w"
+    exec "!javac %"
 endfunc
 
 func! RunShell()
-	exec "w"
-	exec "!bash %"
+    exec "w"
+    exec "!bash %"
 endfunc
 
 func! RunLua()
-	exec "w"
-	exec "!lua %"
+    exec "w"
+    exec "!lua %"
 endfunc
 
 func! CompileCode()
-	exec "w"
-	if &filetype == "cpp"
-		exec "call CompileGpp()"
-	elseif &filetype == "cc"
-		exec "call CompileGpp()"
-	elseif &filetype == "c"
-		exec "call CompileGcc()"
-	elseif &filetype == "python"
-		exec "call RunPython()"
-	elseif &filetype == "java"
-		exec "call CompileJava()"
-	elseif &filetype == "sh"
-		exec "call RunShell()"
-	elseif &filetype == "lua"
-		exec "call RunLua()"
-	endif
+    exec "w"
+    if &filetype == "cpp"
+        exec "call CompileGpp()"
+    elseif &filetype == "cc"
+        exec "call CompileGpp()"
+    elseif &filetype == "c"
+        exec "call CompileGcc()"
+    elseif &filetype == "python"
+        exec "call RunPython()"
+    elseif &filetype == "java"
+        exec "call CompileJava()"
+    elseif &filetype == "sh"
+        exec "call RunShell()"
+    elseif &filetype == "lua"
+        exec "call RunLua()"
+    endif
 endfunc
 
 func! RunResult()
-	exec "w"
-	if &filetype == "cpp"
-		exec "! ./%<.out"
-	elseif &filetype == "cc"
-		exec "! ./%<.out"
-	elseif &filetype == "c"
-		exec "! ./%<.out"
-	elseif &filetype == "python"
-		exec "call RunPython()"
-	elseif &filetype == "java"
-		exec "!java %<"
-	elseif &filetype == "sh"
-		exec "call RunShell()"
-	elseif &filetype == "lua"
-		exec "call RunLua()"
-	endif
+    exec "w"
+    if &filetype == "cpp"
+        exec "! ./%<.out"
+    elseif &filetype == "cc"
+        exec "! ./%<.out"
+    elseif &filetype == "c"
+        exec "! ./%<.out"
+    elseif &filetype == "python"
+        exec "call RunPython()"
+    elseif &filetype == "java"
+        exec "!java %<"
+    elseif &filetype == "sh"
+        exec "call RunShell()"
+    elseif &filetype == "lua"
+        exec "call RunLua()"
+    endif
 endfunc
 
 func! RunResultWithTest()
-	exec "w"
-	if &filetype == "cpp"
-		exec "! ./%<.out < %<.test"
-	elseif &filetype == "cc"
-		exec "! ./%<.out < %<.test"
-	elseif &filetype == "c"
-		exec "! ./%<.out < %<.test"
-	elseif &filetype == "python"
-		exec "call RunPython()"
-	elseif &filetype == "java"
-		exec "!java %< < %<.test"
-	elseif &filetype == "sh"
-		exec "call RunShell()"
-	elseif &filetype == "lua"
-		exec "call RunLua()"
-	endif
+    exec "w"
+    if &filetype == "cpp"
+        exec "! ./%<.out < %<.test"
+    elseif &filetype == "cc"
+        exec "! ./%<.out < %<.test"
+    elseif &filetype == "c"
+        exec "! ./%<.out < %<.test"
+    elseif &filetype == "python"
+        exec "call RunPython()"
+    elseif &filetype == "java"
+        exec "!java %< < %<.test"
+    elseif &filetype == "sh"
+        exec "call RunShell()"
+    elseif &filetype == "lua"
+        exec "call RunLua()"
+    endif
 endfunc
 
 map <C-j> :call CompileCode()<CR>
