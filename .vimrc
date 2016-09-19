@@ -205,6 +205,15 @@ let g:ack_default_options=' -s -H --nocolor --nogroup --column --smart-case --fo
 let g:ackhighlight=1
 let g:ack_use_dispatch=1
 
+"+----------------------------------------------+
+"| @Brief 插件vim colors solarized配置          |
+"| @Date 2016-09-20                             |
+"+----------------------------------------------+
+let g:solarized_termtrans=1
+let g:solarized_menu=0
+colorscheme solarized
+call togglebg#map("<F5>")    " 切换背景快捷键
+
 
 " 语法高亮
 syntax enable
@@ -216,12 +225,7 @@ set number
 set backspace=indent,eol,start
 
 " 背景使用黑色（使用背景黑色后，很多主题颜色会随之改变，不建议设置）
-set background=dark
-
-" 设置颜色模式为solarized
-let g:solarized_termtrans=1
-let g:solarized_menu=0
-colorscheme solarized
+"set background=dark
 
 set cursorline    " 突出显示当前行
 
