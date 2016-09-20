@@ -212,7 +212,6 @@ let g:ack_use_dispatch=1
 let g:solarized_termtrans=1
 let g:solarized_menu=0
 colorscheme solarized
-call togglebg#map("<F5>")    " 切换背景快捷键
 
 
 " 语法高亮
