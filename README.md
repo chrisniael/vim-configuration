@@ -29,7 +29,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/chrisniael/vim-configurati
 
 * ### <a id="vundle">Vundle</a>
 
-    vim 插件管理器
+    vim 插件管理器。
 
 * ### <a id="vim-airline">vim-airline</a>
 
@@ -39,17 +39,17 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/chrisniael/vim-configurati
 
 * ### <a id="vim-fugitive">vim-fugitive</a>
 
-    状态栏显示 git 仓库状态
+    Git 插件，直接在 Vim 中执行 Git 命令。
     
     ![vim-gugitive](images/vim-fugitive.png)
     
 * ### <a id="vim-colors-solarized">vim-colors-solarized</a>
 
-    solarized 颜色
+    solarized 主题。
 
 * ### <a id="a">A</a>
 
-    用于快速跳转 .h 和 .cpp 文件
+    快速跳转 .h 和 .cpp 文件。
     
     ![a](images/a.gif)
 
@@ -63,7 +63,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/chrisniael/vim-configurati
 
 * ### <a id="doxygen">Doxygen Toolkit</a>
 
-    用于快速插入 Doxygen 注释。
+    快速插入 Doxygen 注释。
     
     ![doxygen](images/doxygen.gif)
 
@@ -81,7 +81,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/chrisniael/vim-configurati
 
 * ### <a>NERD Commenter</a>
 
-    用于快速注释和取消注释代码行。
+    代码注释插件，可以快速注释和取消注释代码。
     
     ![nerd-commenter](images/nerd-commenter.gif)
 
