@@ -210,7 +210,7 @@ let g:ack_use_dispatch=1
 "| @Date 2016-09-20                             |
 "+----------------------------------------------+
 syntax enable    " 语法高亮
-set background=dark    " 背景使用黑色（使用背景黑色后，很多主题颜色会随之改变，不建议设置）
+" set background=dark    " 背景使用黑色（使用背景黑色后，很多主题颜色会随之改变，不建议设置）
 colorscheme solarized
 call togglebg#map("<F5>")    " 切换背景颜色快捷键
 
